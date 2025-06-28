@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-empty-object-type */
+
 "use client";
 
 import * as ReactDialog from "@radix-ui/react-dialog";
