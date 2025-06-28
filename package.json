@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
-    "deploy": "npm run build && gh-pages -d build"
+    "deploy": "npm run build && echo > build/.nojekyll && gh-pages -d build --dotfiles"
   },
   "dependencies": {
     "@radix-ui/react-accordion": "^1.2.11",

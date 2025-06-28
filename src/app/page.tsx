@@ -9,7 +9,7 @@ export default function Home() {
       {/* HEADER */}
       <Card>
         <div className="flex flex-col items-center gap-3 p-5">
-          <Image src="/logo.webp" alt="Tofu Auto Works" width={260} height={95} />
+          <Image src="logo.webp" alt="Tofu Auto Works" width={260} height={95} />
           <nav className="flex gap-6 text-md font-bold tracking-wide uppercase">
             {["Home", "Products", "About", "Contact"].map((t) => (
               <a key={t} href="#" className="hover:underline">{t}</a>
