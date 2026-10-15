@@ -29,13 +29,39 @@ The player uses local MP3 renders of original SPC soundtracks from [SNESmusic.or
 
 Track provenance, composers, source archives, render details, and the source archive's usage conditions are recorded in [public/music/README.md](public/music/README.md).
 
-## Static builds
+## Publishing
+
+Push commits to `main` to publish automatically at https://tofuautoworks.com.
+[The deployment workflow](.github/workflows/deploy-pages.yml) installs the locked
+dependencies, builds the static website, and deploys it through GitHub Pages.
+Check progress under the repository's **Actions** tab. The current live version
+stays available if a build fails.
+
+GitHub Pages must use **Settings → Pages → Build and deployment → Source →
+GitHub Actions**, with the custom domain set to `tofuautoworks.com`. This is a
+one-time setup; subsequent pushes need no local deployment command or settings
+changes. The `github-pages` environment must allow deployments from `main`.
+
+The workflow reads the publishing path from GitHub Pages. A custom domain uses
+root paths such as `/_next/`, `/logo.webp`, and `/music/`. A `github.io` project
+site uses the repository path instead. Do not hardcode `/tofuautoworks` for the
+custom domain: doing so makes CSS, JavaScript, images, and audio return 404.
+
+`public/CNAME` records the domain and `public/.nojekyll` keeps Next.js assets
+available if branch publishing is ever used again. The old `pnpm run deploy` and
+`pnpm deploy:gh-pages` commands are only legacy branch-publishing fallbacks;
+they are not needed for Actions and do not trigger an Actions deployment.
+
+## Local static build
 
 ```sh
 pnpm build
-pnpm build:gh-pages
 ```
 
-The second command configures the `/tofuautoworks` base path, including local images and soundtrack assets. Keep the root build for hosting at a domain root. The site does not need a backend or API credentials.
+The static export is written to `build/` using root asset paths, matching the
+custom domain. `pnpm build:gh-pages` remains an alias for the same build. To test
+a repository-subpath deployment explicitly, use
+`PAGES_BASE_PATH=/tofuautoworks pnpm build`. The site does not need a backend or
+API credentials.
 
 Products and Contact currently display coming-soon notices. About is removed from navigation.
