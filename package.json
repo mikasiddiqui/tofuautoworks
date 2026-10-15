@@ -3,6 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
+    "sync:youtube": "node scripts/sync-youtube.mjs",
     "dev": "next dev",
     "build": "next build",
     "build:gh-pages": "DEPLOY_TARGET=gh-pages next build",

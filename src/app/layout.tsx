@@ -4,7 +4,7 @@ import { pixel } from "./fonts";
 
 export const metadata: Metadata = {
   title: "Tofu Auto Works",
-  description: "Custom car kits and builds from Japan",
+  description: "Custom car builds, workshop videos, and a little Super Famicom radio. Welcome to Tofu Auto Works.",
 };
 
 export default function RootLayout({
@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`dark ${pixel.variable}`}>
-      <body className="font-pixel">{children}</body>
+      <body>{children}</body>
     </html>
   );
 }

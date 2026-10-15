@@ -1,0 +1,266 @@
+.blog {
+  min-width: 0;
+  scroll-margin-top: 24px;
+}
+
+.heading {
+  margin-bottom: 24px;
+}
+
+.headingRow {
+  display: flex;
+  align-items: baseline;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 16px;
+}
+
+.headingRow h1 {
+  margin: 0;
+  font-size: clamp(25px, 3vw, 34px);
+  font-weight: 700;
+  line-height: 1.25;
+}
+
+.headingRow > span {
+  font-size: 14px;
+}
+
+.heading > p {
+  margin: 10px 0 18px;
+  max-width: 55ch;
+  font-size: 13px;
+  line-height: 1.7;
+}
+
+.filters {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  padding-top: 14px;
+  border-top: 1px dashed var(--border);
+  font-size: 12px;
+}
+
+.filters select {
+  min-height: 38px;
+  max-width: 100%;
+  padding: 6px 26px 6px 10px;
+  border: 1px solid var(--border);
+  border-radius: 0;
+  color: var(--foreground);
+  background: var(--card);
+  font: inherit;
+  cursor: pointer;
+}
+
+.count {
+  margin-left: auto;
+  white-space: nowrap;
+}
+
+.posts {
+  display: flex;
+  flex-direction: column;
+  gap: 26px;
+}
+
+.post {
+  min-width: 0;
+  border: 1px solid var(--border);
+  background: var(--card);
+  box-shadow: 3px 3px 0 var(--border);
+}
+
+.postMeta {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 4px 14px;
+  min-height: 35px;
+  padding: 8px 12px;
+  border-bottom: 1px solid var(--border);
+  font-size: 11px;
+  line-height: 1.5;
+}
+
+.postMeta time {
+  font-variant-numeric: tabular-nums;
+}
+
+.media {
+  aspect-ratio: 16 / 9;
+  width: 100%;
+  overflow: hidden;
+  background: #101010;
+}
+
+.media iframe,
+.thumbnail {
+  display: block;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.thumbnail {
+  position: relative;
+  padding: 0;
+  cursor: pointer;
+  background: #101010;
+}
+
+.image {
+  display: block;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.play {
+  position: absolute;
+  inset: auto auto 14px 14px;
+  display: inline-flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 12px;
+  border: 1px solid #000;
+  background: var(--primary);
+  box-shadow: 2px 2px 0 #000;
+  color: #000;
+  font-size: 12px;
+  font-weight: 700;
+}
+
+.thumbnail:hover .play {
+  background: #fff;
+}
+
+.duration {
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  padding: 3px 6px;
+  color: #fff;
+  background: #000;
+  font-size: 11px;
+  font-variant-numeric: tabular-nums;
+}
+
+.postBody {
+  padding: 16px;
+  border-top: 1px solid var(--border);
+}
+
+.postBody h2 {
+  margin: 0;
+  font-size: clamp(18px, 2vw, 22px);
+  font-weight: 700;
+  line-height: 1.5;
+  overflow-wrap: anywhere;
+  text-wrap: pretty;
+}
+
+.postActions {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 8px 16px;
+  margin-top: 13px;
+  font-size: 12px;
+}
+
+.postActions a,
+.footer > a {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  min-height: 32px;
+  text-decoration: underline;
+  text-underline-offset: 4px;
+}
+
+.postActions a:hover,
+.footer > a:hover {
+  background: var(--primary);
+  color: #000;
+}
+
+.postActions button {
+  min-height: 32px;
+  padding: 4px 8px;
+  border: 1px solid var(--border);
+  cursor: pointer;
+  font: inherit;
+}
+
+.postActions button:hover {
+  color: #000;
+  background: var(--primary);
+}
+
+.footer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 14px;
+  margin-top: 30px;
+  font-size: 12px;
+  text-align: center;
+}
+
+.more {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 18px;
+  min-height: 44px;
+  padding: 10px 20px;
+  border: 1px solid #000;
+  background: var(--primary);
+  box-shadow: 3px 3px 0 #000;
+  color: #000;
+  cursor: pointer;
+  font: inherit;
+  font-weight: 700;
+}
+
+.more:hover {
+  background: #fff;
+}
+
+.blog button:focus-visible,
+.blog a:focus-visible,
+.blog select:focus-visible {
+  outline: 3px solid var(--foreground);
+  outline-offset: 3px;
+}
+
+.thumbnail:focus-visible {
+  outline-color: var(--primary);
+  outline-offset: -5px;
+}
+
+@media (max-width: 420px) {
+  .filters {
+    gap: 8px;
+  }
+
+  .count {
+    font-size: 10px;
+  }
+
+  .play {
+    bottom: 10px;
+    left: 10px;
+    padding: 7px 9px;
+    font-size: 11px;
+  }
+
+  .postBody {
+    padding: 14px;
+  }
+}

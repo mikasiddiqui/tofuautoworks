@@ -8,6 +8,9 @@ const nextConfig: NextConfig = {
   distDir: "build",
   images: { unoptimized: true },
   trailingSlash: true,
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isGithubSubpathBuild ? `/${repo}` : "",
+  },
   ...(isGithubSubpathBuild
     ? {
         basePath: `/${repo}`,
